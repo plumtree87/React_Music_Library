@@ -8,6 +8,7 @@ const SongTable = (props) => {
                     <th>Title</th>
                     <th>Albulm</th>
                     <th>Artist</th>
+                    <th>Genre</th>
                     <th>Release Date</th>
                     <th>Delete </th>
                 </tr>

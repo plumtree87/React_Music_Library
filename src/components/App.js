@@ -28,6 +28,7 @@ class App extends Component {
     console.log(id)
     axios.delete(`http://127.0.0.1:8000/music/${id}/`);
    
+   
   }
 
   mapSongs(){

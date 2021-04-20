@@ -8,6 +8,7 @@ const Song = (props) => {
                 <td>{props.song.title}</td>
                 <td>{props.song.album}</td>
                 <td>{props.song.artist}</td>
+                <td>{props.song.genre}</td>
                 <td>{props.song.release_date}</td>
                 <td><button onClick={() => props.deleteSong(props.song.id)}>Delete</button></td> 
             </tr>
