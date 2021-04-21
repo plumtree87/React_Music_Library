@@ -3,6 +3,7 @@ import React, {Component} from 'react';
 import axios from 'axios'
 import Song from './Songs/Song';
 import SongTable from './Songs/SongTable';
+import SongCreator from './CreateSong/createSong';
 
 class App extends Component {
   state = {
@@ -23,10 +24,19 @@ class App extends Component {
     })
   }
 
+  addSong(song){
+    axios.post(`http://127.0.0.1:8000/music/`, song)
+    this.getAllSongs();
+    debugger;
+      
+    
+  }
+
   deleteSong(id){
     // HOW DO I TAKE THE song.id from Song.js and use that to Del it using AXIOS
     console.log(id)
     axios.delete(`http://127.0.0.1:8000/music/${id}/`);
+    this.getAllSongs();
    
    
   }
@@ -36,7 +46,7 @@ class App extends Component {
       <Song 
         key={song.id}
         song={song}
-        deleteSong = {this.deleteSong}
+        deleteSong = {(id) => this.deleteSong(id)}
       />
 
     )
@@ -47,8 +57,8 @@ class App extends Component {
     return(
     <div>
         <SongTable mapSongs={() => this.mapSongs()}/>
-       
-      
+        <SongCreator addNewSong={this.addSong.bind(this)}/>
+  
     </div>
     );
   }

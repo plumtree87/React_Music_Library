@@ -1,4 +1,4 @@
-import { render } from '@testing-library/react';
+
 import React from 'react'
 
 const Song = (props) => {
@@ -18,4 +18,3 @@ const Song = (props) => {
 
 export default Song;
 
-// HOW DO I RETURN THE song.id onClick to my App.js to use that ID to del it? lol..
