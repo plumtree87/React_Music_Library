@@ -4,10 +4,12 @@ import axios from 'axios'
 import Song from './Songs/Song';
 import SongTable from './Songs/SongTable';
 import SongCreator from './CreateSong/createSong';
+import SearchBar from './Songs/searchBar';
 
 class App extends Component {
   state = {
-    songs: []
+    songs: [],
+    search: ''
   }
 
   componentDidMount(){
@@ -24,21 +26,24 @@ class App extends Component {
     })
   }
 
-  addSong(song){
-    axios.post(`http://127.0.0.1:8000/music/`, song)
+  async addSong(song){
+    await axios.post(`http://127.0.0.1:8000/music/`, song)
     this.getAllSongs();
-    debugger;
       
     
   }
 
-  deleteSong(id){
+  async deleteSong(id){
     // HOW DO I TAKE THE song.id from Song.js and use that to Del it using AXIOS
     console.log(id)
-    axios.delete(`http://127.0.0.1:8000/music/${id}/`);
+    await axios.delete(`http://127.0.0.1:8000/music/${id}/`);
     this.getAllSongs();
    
    
+  }
+
+  filterSongs(){
+    return this.state.songs.filter
   }
 
   mapSongs(){
@@ -52,12 +57,19 @@ class App extends Component {
     )
   }
 
+  handleInput = (event) => {
+    console.log(event.target.value, "LOOK HERE")
+    this.setState({ search: event.target.value })
+  }
+
   render(){
+
     console.log("this.state", this.state);
     return(
     <div>
         <SongTable mapSongs={() => this.mapSongs()}/>
         <SongCreator addNewSong={this.addSong.bind(this)}/>
+        <SearchBar handleInput={this.handleInput} />
   
     </div>
     );

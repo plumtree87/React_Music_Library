@@ -50,43 +50,41 @@ class SongCreator extends Component {
                 <center>
                     <h3>Add a new song!</h3>
                 </center>
-                <form onSubmit={this.handleSubmit}>
-                    <div className='row col-align'>
-                        <div className='col-md-4'>
+                <div type='container'>
+                     <form onSubmit={this.handleSubmit}>
+                 
+                      
                             <label>Title:</label>
                             <input type='text' name="title" value={this.state.title} onChange={this.handleChange} />
-                        </div>
-                        <div className='col-md-4'>
+                        
+                      
                             <label>Album:</label>
                             <input type='text' name='album' value={this.state.album}
                             onChange={this.handleChange} />
-                        </div>
-                        <div className='col-md-4'>
+                     
+                       
                             <label>Artist:</label>
                             <input type='text' name='artist' value={this.state.artist}
                             onChange={this.handleChange} />
-                        </div>
-                        <div className='col-md-5'>
+                     
                             <label>Genre:</label>
                             <input type='text' name='genre' value={this.state.genre}
                             onChange={this.handleChange} />
-                        </div>
-                        <div className='col-md-6'>
+                       
+                       
                             <label>Release Date: YYYY-MM-DD</label>
                             <input type='text' name='release_date' value={this.state.release_date}
                             onChange={this.handleChange} />
-                        </div>
-                        <div className='col-md-4'>
-                            <input type='submit' value='Add' />
-                        </div>
+                    
+                     
+                  
+                          <input type='submit' value='Add' />
+                          
+                    </form>
                     </div>
-                </form>
             </div>
         );
     }
-
-
-
 
 }
 export default SongCreator;
