@@ -42,10 +42,6 @@ class App extends Component {
    
   }
 
-  filterSongs(){
-    return this.state.songs.filter
-  }
-
   mapSongs(){
     return this.state.songs.map(song =>
       <Song 
@@ -58,9 +54,18 @@ class App extends Component {
   }
 
   handleInput = (event) => {
-    console.log(event.target.value, "LOOK HERE")
-    this.setState({ search: event.target.value })
+    
+    this.setState({ search: event.target.value });
+    const filteredSongs = this.state.songs.filter(element => {
+      return element.title.toLowerCase().includes(this.state.search.toLowerCase());
+    });
+    
+    this.setState({
+      songs: filteredSongs  
+    })
+   
   }
+  
 
   render(){
 

@@ -14,6 +14,7 @@ const SongTable = (props) => {
                 </tr>
             </thead>
             {props.mapSongs()}
+        
         </table>
     );
 }
