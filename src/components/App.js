@@ -24,6 +24,7 @@ class App extends Component {
     this.setState({
       songs: response.data
     })
+
   }
 
   async addSong(song){
@@ -57,13 +58,26 @@ class App extends Component {
     
     this.setState({ search: event.target.value });
     const filteredSongs = this.state.songs.filter(element => {
+      if (this.state.search == ""){
+        this.getAllSongs();
+        element = this.state.songs
+        return element
+      }
+      if (this.state.search == null){
+        this.getAllSongs();
+        element = this.state.songs;
+        return element
+      }
+      
       return element.title.toLowerCase().includes(this.state.search.toLowerCase());
+      
     });
-    
+
     this.setState({
       songs: filteredSongs  
     })
    
+
   }
   
 
