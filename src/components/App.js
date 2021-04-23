@@ -30,17 +30,15 @@ class App extends Component {
   async addSong(song){
     await axios.post(`http://127.0.0.1:8000/music/`, song)
     this.getAllSongs();
-      
-    
   }
 
   async deleteSong(id){
-    // HOW DO I TAKE THE song.id from Song.js and use that to Del it using AXIOS
-    console.log(id)
     await axios.delete(`http://127.0.0.1:8000/music/${id}/`);
     this.getAllSongs();
-   
-   
+  }
+
+  async editSong(id){
+    await axios.put(`http://127.0.0.1:8000/music/${id}/`)
   }
 
   mapSongs(){
@@ -86,9 +84,10 @@ class App extends Component {
     console.log("this.state", this.state);
     return(
     <div>
+        <SearchBar handleInput={this.handleInput} />
         <SongTable mapSongs={() => this.mapSongs()}/>
         <SongCreator addNewSong={this.addSong.bind(this)}/>
-        <SearchBar handleInput={this.handleInput} />
+       
   
     </div>
     );

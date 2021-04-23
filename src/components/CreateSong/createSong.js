@@ -50,38 +50,45 @@ class SongCreator extends Component {
                 <center>
                     <h3>Add a new song!</h3>
                 </center>
+                <center>
                 <div type='container'>
                      <form onSubmit={this.handleSubmit}>
-                 
-                      
+
+                            <div>
                             <label>Title:</label>
                             <input type='text' name="title" value={this.state.title} onChange={this.handleChange} />
-                        
-                      
+                            </div>
+
+                            <div>
                             <label>Album:</label>
                             <input type='text' name='album' value={this.state.album}
                             onChange={this.handleChange} />
-                     
+                            </div>
                        
+                            <div>
                             <label>Artist:</label>
                             <input type='text' name='artist' value={this.state.artist}
                             onChange={this.handleChange} />
-                     
+                            </div>
+
+                            <div>
                             <label>Genre:</label>
                             <input type='text' name='genre' value={this.state.genre}
                             onChange={this.handleChange} />
-                       
-                       
-                            <label>Release Date: YYYY-MM-DD</label>
+                            </div>
+
+                            <div>
+                            <label>Released</label>
                             <input type='text' name='release_date' value={this.state.release_date}
                             onChange={this.handleChange} />
-                    
+                            </div>
                      
-                  
+                            <div>
                           <input type='submit' value='Add' />
-                          
+                          </div>
                     </form>
                     </div>
+                    </center>
             </div>
         );
     }

@@ -1,11 +1,13 @@
 import React, {Component} from 'react';
 
+
 const SearchBar = (props) => {
     return (
             
             <nav className='nav-title'>
-            <h4>Search</h4>
-            Search bar
+            
+            <br></br>
+            Search:
             <input onChange={props.handleInput} type="text"/>
             </nav>
            
