@@ -6,7 +6,7 @@ const SearchBar = (props) => {
             <div>
             <h4>Search</h4>
             Search bar
-            <input onChange={props.handleInput} onKeyDown={props.handleInput} type="text"/>
+            <input onChange={props.handleInput} type="text"/>
             </div>
            
     

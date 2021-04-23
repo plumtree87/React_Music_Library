@@ -58,14 +58,9 @@ class App extends Component {
     
     this.setState({ search: event.target.value });
     const filteredSongs = this.state.songs.filter(element => {
-      if (this.state.search == ""){
+      if (event.target.value == ""){
         this.getAllSongs();
         element = this.state.songs
-        return element
-      }
-      if (this.state.search == null){
-        this.getAllSongs();
-        element = this.state.songs;
         return element
       }
       
