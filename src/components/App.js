@@ -54,6 +54,8 @@ class App extends Component {
     )
   }
 
+
+  // this below function will not re-render the this.getAllSongs() if you make a typo or mispelling or spell out anything not in the records. Besides that, it works.
   handleInput = (event) => {
     
     this.setState({ search: event.target.value });
@@ -63,9 +65,12 @@ class App extends Component {
         element = this.state.songs
         return element
       }
-      
-      return element.title.toLowerCase().includes(this.state.search.toLowerCase());
-      
+      else if ( 
+           element.title.toLowerCase().includes(this.state.search.toLowerCase()) || element.album.toLowerCase().includes(this.state.search.toLowerCase()) || element.artist.toLowerCase().includes(this.state.search.toLowerCase()) ||
+                element.genre.toLowerCase().includes(this.state.search.toLowerCase()) || element.release_date.includes(this.state.search.toLowerCase())
+      ){  
+        return element
+      }
     });
 
     this.setState({

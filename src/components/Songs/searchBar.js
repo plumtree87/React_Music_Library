@@ -3,11 +3,11 @@ import React, {Component} from 'react';
 const SearchBar = (props) => {
     return (
             
-            <div>
+            <nav className='nav-title'>
             <h4>Search</h4>
             Search bar
             <input onChange={props.handleInput} type="text"/>
-            </div>
+            </nav>
            
     
     )
